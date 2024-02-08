@@ -1,8 +1,8 @@
 CREATE DATABASE IF NOT EXISTS curso;
 USE curso;
 
-DROP TABLE IF EXISTS usuarios;
 DROP TABLE IF EXISTS seguidores;
+DROP TABLE IF EXISTS usuarios;
 
 CREATE TABLE usuarios(
     id int auto_increment primary key,
