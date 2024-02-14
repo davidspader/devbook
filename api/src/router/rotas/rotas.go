@@ -11,7 +11,7 @@ import (
 type Rota struct {
 	URI                string
 	Metodo             string
-	funcao             func(http.ResponseWriter, *http.Request)
+	Funcao             func(http.ResponseWriter, *http.Request)
 	RequerAutenticacao bool
 }
 
@@ -24,10 +24,10 @@ func Configurar(r *mux.Router) *mux.Router {
 		if rota.RequerAutenticacao {
 			r.HandleFunc(
 				rota.URI,
-				middlewares.Logger(middlewares.Autenticar(rota.funcao)),
+				middlewares.Logger(middlewares.Autenticar(rota.Funcao)),
 			).Methods(rota.Metodo)
 		} else {
-			r.HandleFunc(rota.URI, middlewares.Logger(rota.funcao)).Methods(rota.Metodo)
+			r.HandleFunc(rota.URI, middlewares.Logger(rota.Funcao)).Methods(rota.Metodo)
 		}
 	}
 
