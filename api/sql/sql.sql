@@ -34,6 +34,6 @@ CREATE TABLE publicacoes(
     REFERENCES usuarios(id)
     ON DELETE CASCADE,
 
-    curtida int default 0,
+    curtidas int default 0,
     criadaEm timestamp default current_timestamp
 )ENGINE=INNODB;
